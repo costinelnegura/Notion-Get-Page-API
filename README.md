@@ -1,9 +1,11 @@
 # Notion Get Page API
 ### API developed in Java that retrieves pages from a Notion database.
+The retrieved pages are emails that were imported from Outlook.
 
 
 ---
-Because each Notion Database has its own ID, you have to add that property in the command line when executing the project.
+Because each Notion Database has its own ID, you have to add that property in the command line when executing 
+the project.
 
 `--notion.secret-token=type your token here` 
 
