@@ -36,10 +36,9 @@ public class DatabaseService {
     public ResponseEntity<List<Email>> queryDatabase(String databaseID) {
         var url = notionConfigProperties.apiURL() + "/v1/databases/" + databaseID + "/query";
         log.info("Querying Notion Database: {}", url);
-        List<Page> pages;
         List<Email> emails = new ArrayList<>();
         try {
-            pages = Objects.requireNonNull(builder.build()
+            List<Page> pages = Objects.requireNonNull(builder.build()
                             .post()
                             .uri(url)
                             .headers(httpHeaders -> {
