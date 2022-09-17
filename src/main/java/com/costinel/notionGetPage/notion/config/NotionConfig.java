@@ -16,7 +16,8 @@ public class NotionConfig {
 
     @Bean
     public WebClient getWebClientBuilder() {
-        return WebClient.builder().exchangeStrategies(ExchangeStrategies.builder()
+        return WebClient.builder()
+                .exchangeStrategies(ExchangeStrategies.builder()
                         .codecs(configurer -> configurer
                                 .defaultCodecs()
                                 .maxInMemorySize(16 * 1024 * 1024))
