@@ -5,8 +5,10 @@
 ---
 Because each Notion Database has its own ID, you have to add that property in the command line when executing the project.
 
-`--notion.secret-token=type your token here`
+`--notion.secret-token=type your token here` 
+
 `--notion.database-id=type your notion database id here`
+
 ---
 ### Port
 
