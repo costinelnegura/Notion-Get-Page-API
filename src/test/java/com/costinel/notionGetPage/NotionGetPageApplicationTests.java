@@ -31,14 +31,14 @@ class NotionGetPageApplicationTests {
     @Test
     public void itShouldReturnStatus200_OK() {
         //given
-        List<Email> expectedEmailList = new ArrayList<>();
-        ResponseEntity<List<Email>> expectedResult = new ResponseEntity<>(expectedEmailList, HttpStatus.OK);
+        List<Email> emailList = new ArrayList<>();
+        ResponseEntity<List<Email>> expectedResponseEntity = new ResponseEntity<>(emailList, HttpStatus.OK);
 
         //when
-        ResponseEntity<List<Email>> listResponseEntity =
+        ResponseEntity<List<Email>> testedResponseEntity =
                 notionClient.databases.queryDatabase(notionConfigProperties.databaseId());
 
         //then
-        Assertions.assertEquals(expectedResult.getStatusCode(), listResponseEntity.getStatusCode());
+        Assertions.assertEquals(expectedResponseEntity.getStatusCode(), testedResponseEntity.getStatusCode());
     }
 }
