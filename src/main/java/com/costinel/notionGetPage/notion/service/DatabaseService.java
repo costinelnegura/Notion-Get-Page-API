@@ -35,7 +35,7 @@ public class DatabaseService {
      */
     public ResponseEntity<List<Email>> queryDatabase(String databaseID) {
         var url = notionConfigProperties.apiURL() + "/v1/databases/" + databaseID + "/query";
-        log.info("Querying Notion Database: {}", url);
+//        log.info("Querying Notion Database: {}", url);
         List<Email> emails = new ArrayList<>();
         try {
             List<Page> pages = Objects.requireNonNull(builder.build()
@@ -50,10 +50,10 @@ public class DatabaseService {
                             .bodyToFlux(Database.class)
                             .blockFirst())
                     .getPages();
-            log.info("List of pages retrieve: {}", pages);
+//            log.info("List of pages retrieve: {}", pages);
             emails = pages.stream()
                     .map(NotionGetPageService::getAllEmailPropertyIds)
-                    .peek(System.out::println)
+//                    .peek(System.out::println)
                     .toList();
             return new ResponseEntity<>(emails, HttpStatus.OK);
         }catch(WebClientResponseException e){

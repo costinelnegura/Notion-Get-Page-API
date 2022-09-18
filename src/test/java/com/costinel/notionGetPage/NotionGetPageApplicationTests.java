@@ -10,8 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 @SpringBootTest
@@ -40,5 +39,21 @@ class NotionGetPageApplicationTests {
 
         //then
         Assertions.assertEquals(expectedResponseEntity.getStatusCode(), testedResponseEntity.getStatusCode());
+    }
+
+    @Test
+    public void itShouldReturnImmutableCollectionList(){
+        //given
+
+        //Expected object type is an immutable collection list
+        List<Email> emailList = List.of();
+        ResponseEntity<List<Email>> expectedResponseEntity = new ResponseEntity<>(emailList, HttpStatus.OK);
+
+        //when
+        ResponseEntity<List<Email>> testedResponseEntity =
+                notionClient.databases.queryDatabase(notionConfigProperties.databaseId());
+
+        //then
+        Assertions.assertEquals(Objects.requireNonNull(expectedResponseEntity.getBody()).getClass(), Objects.requireNonNull(testedResponseEntity.getBody()).getClass());
     }
 }
