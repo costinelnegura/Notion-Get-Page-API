@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.*;
 
-
 @SpringBootTest
 class NotionGetPageApplicationTests {
 
@@ -42,7 +41,7 @@ class NotionGetPageApplicationTests {
     }
 
     @Test
-    public void itShouldReturnImmutableCollectionList(){
+    public void itShouldReturnImmutableCollectionList() {
         //given
 
         //Expected object type is an immutable collection list

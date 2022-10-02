@@ -16,7 +16,7 @@ public class NotionGetPageService {
     contains the Notion page properties.
      */
     public static Email getAllEmailPropertyIds(Page page) {
-//        log.info("getAllEmailPropertyIds method called passing Page object as argument: {}", page.toString());
+        log.info("getAllEmailPropertyIds method called passing Page object as argument: {}", page.toString());
         return new Email(
                 page.getId(),
                 page.getProperties().get("Task Description").get("id").textValue(),
